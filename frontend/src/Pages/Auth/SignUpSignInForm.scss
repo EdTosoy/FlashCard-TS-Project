@@ -1,0 +1,44 @@
+.auth-form {
+  box-shadow: 0 4px 8px -3px gray;
+  border-radius: 10px;
+  padding: 2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 2em;
+    font-weight: 400;
+  }
+  input,
+  button,
+  p {
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    border-radius: 25px;
+  }
+  input {
+    background-color: #f5f5f5;
+    border: none;
+    margin-bottom: 1em;
+  }
+  button,
+  p {
+    margin-top: 1.4em;
+  }
+  button:first-of-type {
+    background-color: #f23400;
+    color: white;
+  }
+  button:last-of-type {
+    background-color: #151515;
+    background-color: #2a2a2a;
+    background-color: #202020;
+    color: white;
+  }
+
+  span {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

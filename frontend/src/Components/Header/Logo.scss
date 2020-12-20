@@ -1,0 +1,12 @@
+.logo {
+  display: flex;
+  align-items: center;
+  .logo-wrapper {
+    margin-right: 0.8em;
+    width: 35px;
+    height: 35px;
+    img {
+      width: 100%;
+    }
+  }
+}

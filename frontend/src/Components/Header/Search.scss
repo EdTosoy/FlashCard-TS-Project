@@ -1,0 +1,40 @@
+.search {
+  flex-grow: 1;
+  position: relative;
+  margin: 0 5px;
+  border-radius: 27px;
+  -webkit-border-radius: 27px;
+  -moz-border-radius: 27px;
+  -ms-border-radius: 27px;
+  -o-border-radius: 27px;
+
+  input {
+    font-size: 1.3em;
+    height: 100%;
+    width: 100%;
+    background-color: #efefef;
+    border: 1px solid white;
+    border-radius: 27px;
+    -webkit-border-radius: 27px;
+    -moz-border-radius: 27px;
+    -ms-border-radius: 27px;
+    -o-border-radius: 27px;
+    padding: 0 1em;
+    padding-left: 3rem;
+    &:focus {
+      border: 1px solid skyblue;
+    }
+  }
+  ion-icon {
+    color: #666666;
+    font-size: 2em;
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+  }
+}

@@ -1,0 +1,36 @@
+main {
+  grid-column: 2/-2;
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(10, minmax(1rem, 1fr));
+  margin-top: 100px;
+
+  .text {
+    grid-column: 1/5;
+
+    h1 {
+      font-size: 6em;
+      font-weight: 400;
+      margin: 20px 0;
+      margin-left: -6px;
+    }
+    p {
+      font-size: 1.4em;
+      margin-bottom: 1em;
+    }
+    h2 {
+      cursor: pointer;
+      margin-top: 1em;
+      font-size: 1.3em;
+
+      &:hover {
+        // text-decoration: underline;
+        display: inline;
+        border-bottom: 4px solid black;
+      }
+    }
+  }
+  form {
+    grid-column: -5/-1;
+  }
+}

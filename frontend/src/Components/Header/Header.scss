@@ -1,0 +1,40 @@
+header {
+  grid-column: 1/-1;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  .header-content {
+    grid-column: 2/-2;
+    box-shadow: 0 3px 3px -2.6px gray;
+    font-size: 1rem;
+    display: flex;
+    height: 5.5em;
+    background-color: white;
+    padding: 1em;
+  }
+}
+
+.header-dark-theme {
+  .header-content, .notification, .drop-down {
+    background-color: #242526 !important;
+    box-shadow: none;
+    border: .05px solid #33363A;
+    *{
+      color: #B0B3B8;
+    }
+  }
+  .header-content {
+    border-top: none;
+  }
+  .header-content .search input  {
+    background-color: #3A3B3C !important;
+    border: 1px solid #33363A !important;
+    &:focus {
+      border: 1px solid #B0B3B8 !important;
+    }
+  }
+  .tag:hover , .settings ion-icon:hover , .drop-down li:hover {
+    background-color: #3A3B3C !important;
+  }
+  
+}

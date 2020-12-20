@@ -1,0 +1,15 @@
+.showcase {
+  grid-column: 1/-1;
+  background-color: white;
+  padding: 1em 4em;
+}
+.dark-showcase {
+  background-color: #242526;
+}
+
+.grid-item {
+  width: calc(16.666666666666666666666666666667%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding: 8px;
+}

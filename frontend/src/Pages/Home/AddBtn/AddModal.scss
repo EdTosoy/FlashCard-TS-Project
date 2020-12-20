@@ -1,0 +1,30 @@
+.add-modal {
+  height: 550px;
+  width: 800px;
+  background-color: white;
+  border-radius: 28px;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  -ms-border-radius: 28px;
+  -o-border-radius: 28px;
+  display: flex;
+
+  .file-preview {
+    width: 300px;
+    height: 400px;
+    background-color: black;
+  }
+  .file-discription {
+    display: flex;
+    flex-direction: column;
+    * {
+      width: 400px;
+      padding: 1em;
+      font-size: 1.5em;
+    }
+  }
+}
+
+.dark-add-modal {
+  background-color: #242526;
+}

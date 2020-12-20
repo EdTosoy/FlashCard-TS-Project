@@ -1,0 +1,26 @@
+.tags {
+  display: flex;
+  .tag {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 1em;
+    font-size: 1.2em;
+    font-weight: 500;
+    border-radius: 27px;
+    -webkit-border-radius: 27px;
+    -moz-border-radius: 27px;
+    -ms-border-radius: 27px;
+    -o-border-radius: 27px;
+    &:hover {
+      background-color: #efefef;
+    }
+  }
+  .active {
+    background-color: #cc2200;
+    color: white !important;
+    &:hover {
+      background-color: #cc2200;
+    }
+  }
+}
