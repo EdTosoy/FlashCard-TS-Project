@@ -6,15 +6,20 @@ import { MyContext } from "src/MyContext";
 
 @Resolver()
 export class Posts {
-  @Query(() => [Post])
+  @Query(() => [Post], { nullable: true })
   async posts(@Ctx() context: MyContext) {
-    const authorization = context.req.headers["authorization"];
-    const token = authorization!.split(" ")[1];
-    const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
-    const user = await User.findOne(payload.userId);
-    const author = user!.email;
-    const post = await Post.find({ where: { author: author } });
-    console.log(post);
-    return post;
+    try {
+      const authorization = context.req.headers["authorization"];
+      const token = authorization!.split(" ")[1];
+      const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
+      const user = await User.findOne(payload.userId);
+      const author = user!.email;
+      const post = await Post.find({ where: { author: author } });
+      console.log(post);
+      return post;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   }
 }

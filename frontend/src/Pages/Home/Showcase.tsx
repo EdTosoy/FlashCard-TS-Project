@@ -128,8 +128,8 @@ export default function Showcase(): ReactElement {
           //@ts-ignore*/}
         <Masonry>
           {sampleData.map(({ url, id }) => (
-            <div className="item-wrapper">
-              <img className="grid-item" key={id} src={url} alt="card" />
+            <div className="item-wrapper" key={id} >
+              <img className="grid-item" src={url} alt="card" />
               {/* <div className="details">
                 <div className="title">TIELS</div>
                 <div className="discription">discriotsafjdl</div>

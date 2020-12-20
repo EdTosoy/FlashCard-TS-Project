@@ -1,25 +1,21 @@
-import React from "react";
-import "./App.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { ReactElement, useState, useEffect } from "react";
+import { setAccessToken } from "./accessToken";
+import Routes from "./Routes";
 
-import Home from "./Pages/Home/Home";
-import Auth from "./Pages/Auth/Auth";
-import { HomeProvider } from "./ContextAPI/homeContext";
-
-function App() {
-  return (
-    <HomeProvider>
-      <Router>
-        <div className="App">
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/auth" component={Auth} />
-            <Route exact path="/:tag" component={Home} />
-          </Switch>
-        </div>
-      </Router>
-    </HomeProvider>
-  );
+export default function App(): ReactElement {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch("http://localhost:4000/refresh_token", {
+      method: "POST",
+      credentials: "include",
+    }).then(async (x) => {
+      const { accessToken } = await x.json();
+      setAccessToken(accessToken);
+      setLoading(false);
+    });
+  }, []);
+  if (loading) {
+    return <div>LOADING... please wait for a moment.</div>;
+  }
+  return <Routes />;
 }
-
-export default App;
