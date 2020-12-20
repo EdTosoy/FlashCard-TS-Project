@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import "./AuthNavigation.scss";
 
-export default function AuthNavigation() {
+export default function AuthNavigation(): ReactElement {
   return (
     <div className="auth-navigation">
       <li>Rooms</li>

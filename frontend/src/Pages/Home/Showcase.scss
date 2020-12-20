@@ -7,9 +7,21 @@
   background-color: #242526;
 }
 
+// .grid-item {
+//   width: calc(16.666666666666666666666666666667%);
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   padding: 8px;
+// }
 .grid-item {
-  width: calc(16.666666666666666666666666666667%);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding: 8px;
+  margin-bottom: -5px;
+}
+.item-wrapper {
+  margin: 8px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.details {
+  padding: 1rem;
+  background-color: white;
 }

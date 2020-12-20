@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { CSSProperties, useContext, ReactElement } from "react";
 
 import { HomeContext } from "../../ContextAPI/homeContext";
 import "./Notification.scss";
 
-export default function Notification() {
+export default function Notification(): ReactElement {
   const { notificationDisplay } = useContext(HomeContext);
-  const notificationStyle = notificationDisplay
+  const notificationStyle: CSSProperties | any = notificationDisplay
     ? { left: "calc(100vw - 350px)" }
     : null;
   return (

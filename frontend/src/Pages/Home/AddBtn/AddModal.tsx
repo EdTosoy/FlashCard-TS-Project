@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 
 import { HomeContext } from "../../../ContextAPI/homeContext";
 import "./AddModal.scss";
 
-export default function AddModal() {
-  const handleClick = (e) => {
+export default function AddModal(): ReactElement {
+  const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
   const { darkTheme } = useContext(HomeContext);

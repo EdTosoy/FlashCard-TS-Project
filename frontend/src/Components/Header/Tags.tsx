@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 
 import "./Tags.scss";
 
-export default function Tags() {
+export default function Tags(): ReactElement {
   const tags = [
     {
       id: 1,
@@ -21,11 +21,17 @@ export default function Tags() {
       url: "/journals",
     },
   ];
-  
+
   return (
     <div className="tags">
       {tags.map(({ id, title, url }) => (
-        <NavLink exact to={url} activeClassName="active" className="tag" key={id}>
+        <NavLink
+          exact
+          to={url}
+          activeClassName="active"
+          className="tag"
+          key={id}
+        >
           {title}
         </NavLink>
       ))}

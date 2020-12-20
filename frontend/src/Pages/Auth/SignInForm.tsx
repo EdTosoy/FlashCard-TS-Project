@@ -1,8 +1,11 @@
-import React from "react";
-
+import React, { ReactElement } from "react";
 import "./SignUpSignInForm.scss";
 
-export default function SignInForm({ setAuthStatus }) {
+interface Props {
+  setAuthStatus: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function SignInForm({ setAuthStatus }: Props): ReactElement {
   const handleClick = () => {
     setAuthStatus((prevValue) => !prevValue);
   };

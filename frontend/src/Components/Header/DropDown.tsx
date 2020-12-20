@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { CSSProperties, useContext, ReactElement } from "react";
 import { Link } from "react-router-dom";
 
 import { HomeContext } from "../../ContextAPI/homeContext";
 
 import "./DropDown.scss";
 
-export default function DropDown() {
+export default function DropDown(): ReactElement {
   const { dropDownDisplay, setDarkTheme } = useContext(HomeContext);
-  const dropDownStyle = dropDownDisplay ? { display: "block" } : null;
+  const dropDownStyle: CSSProperties | any = dropDownDisplay
+    ? { display: "block" }
+    : null;
   const handleChange = () => {
     setDarkTheme((prevValue) => !prevValue);
   };

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import "./Search.scss";
 
-export default function Search() {
+export default function Search(): ReactElement {
   return (
     <div className="search">
       <input type="input" id="search" placeholder="Search" />

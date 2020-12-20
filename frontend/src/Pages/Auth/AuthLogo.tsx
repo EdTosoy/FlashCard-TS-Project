@@ -1,10 +1,10 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import logo from "./Media/logo.svg";
 
 import "./AuthLogo.scss";
 
-export default function AuthLogo() {
+export default function AuthLogo(): ReactElement {
   return (
     <div className="auth-logo">
       <div className="logo-wrapper">

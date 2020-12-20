@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactElement } from "react";
 
 import "./Auth.scss";
 import AuthFooter from "./AuthFooter";
@@ -6,8 +6,8 @@ import AuthHeader from "./AuthHeader";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
 
-export default function Auth() {
-  const [authStatus, setAuthStatus] = useState(true);
+export default function Auth(): ReactElement {
+  const [authStatus, setAuthStatus] = useState<boolean>(true);
   return (
     <div className="auth">
       <AuthHeader />

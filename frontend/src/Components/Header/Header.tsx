@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 
 import Logo from "./Logo";
 import Tags from "./Tags";
@@ -10,7 +10,7 @@ import { HomeContext } from "../../ContextAPI/homeContext";
 
 import "./Header.scss";
 
-export default function Header() {
+export default function Header(): ReactElement {
   const { darkTheme } = useContext(HomeContext);
   return (
     <header className={darkTheme && "header-dark-theme"}>

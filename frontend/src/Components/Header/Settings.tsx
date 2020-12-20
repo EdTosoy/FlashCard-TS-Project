@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 import { Link } from "react-router-dom";
 
 import { HomeContext } from "../../ContextAPI/homeContext";
 import "./Settings.scss";
 
-export default function Settings() {
+export default function Settings(): ReactElement {
   const { SetnotificationDisplay, SetdropDownDisplay } = useContext(
     HomeContext
   );

@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
+//@ts-ignore
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import { HomeContext } from "../../ContextAPI/homeContext";
 
 import "./Showcase.scss";
 
-export default function Showcase() {
+export default function Showcase(): ReactElement {
   const { darkTheme } = useContext(HomeContext);
 
   // const [imageData, setimageData] = useState([]);
@@ -119,11 +121,23 @@ export default function Showcase() {
 
   return (
     <div className={`showcase ${darkTheme && "dark-showcase"}`}>
-      <div className="grid">
-        {sampleData.map(({ url, id }) => (
-          <img className="grid-item" key={id} src={url} alt="card" />
-        ))}
-      </div>
+      {/*
+          //@ts-ignore*/}
+      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 6 }}>
+        {/*
+          //@ts-ignore*/}
+        <Masonry>
+          {sampleData.map(({ url, id }) => (
+            <div className="item-wrapper">
+              <img className="grid-item" key={id} src={url} alt="card" />
+              {/* <div className="details">
+                <div className="title">TIELS</div>
+                <div className="discription">discriotsafjdl</div>
+              </div> */}
+            </div>
+          ))}
+        </Masonry>
+      </ResponsiveMasonry>
     </div>
   );
 }

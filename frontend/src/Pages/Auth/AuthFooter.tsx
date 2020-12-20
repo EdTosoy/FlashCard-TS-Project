@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import "./AuthFooter.scss";
 
-export default function AuthFooter() {
+export default function AuthFooter(): ReactElement {
   return (
     <div className="auth-footer">
       <li>Terms of Service</li>

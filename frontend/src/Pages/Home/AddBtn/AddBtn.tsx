@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 
 import { HomeContext } from "../../../ContextAPI/homeContext";
 
 import "./AddBtn.scss";
 import AddModalWrapper from "./AddModalWrapper";
 
-export default function AddBtn() {
+export default function AddBtn(): ReactElement {
   const { setAddModalDisplay, darkTheme } = useContext(HomeContext);
   const handleClick = () => {
     setAddModalDisplay((preValue) => !preValue);
