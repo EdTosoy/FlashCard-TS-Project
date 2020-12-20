@@ -3,12 +3,47 @@ import express from "express";
 import { createConnection } from "typeorm";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
+import cookieParser from "cookie-parser";
+import { createRefreshToken, createAccessToken } from "./Auth";
+import { User } from "./entity/User";
+import { sendRefreshToken } from "./sendRefreshToken";
+import { verify } from "jsonwebtoken";
 
 (async () => {
   const app = express();
   app.get("hello");
   app.get("/", (_, res) => {
     res.send("hello");
+  });
+
+  app.use(cookieParser());
+
+  app.post("/refresh_token", async (req, res) => {
+    console.log(req.cookies);
+    const token = req.cookies.fid;
+
+    if (!token) {
+      return res.send({ ok: false, accessToken: "" });
+    }
+
+    let payload: any;
+
+    try {
+      payload = verify(token, process.env.REFRESH_TOKEN_SECRET!);
+    } catch (error) {
+      console.error(error);
+      return res.send({ ok: false, accessToken: "" });
+    }
+
+    // token is valid and we can send back an access token
+    const user = await User.findOne({ id: payload.userId });
+    if (!user) {
+      return res.send({ ok: false, accessToken: "" });
+    }
+
+    sendRefreshToken(res, createRefreshToken(user));
+
+    return res.send({ ok: true, accessToken: createAccessToken(user) });
   });
 
   await createConnection();

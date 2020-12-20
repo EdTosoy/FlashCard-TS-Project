@@ -1,5 +1,12 @@
 import { Field, Int, ObjectType } from "type-graphql";
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  OneToMany,
+} from "typeorm";
+import { Post } from "./Post";
 
 @ObjectType()
 @Entity({ name: "users" })
@@ -21,4 +28,10 @@ export class User extends BaseEntity {
   @Field(() => String)
   @Column()
   password: string;
+
+  @OneToMany(() => Post, (post: Post) => post.user, {
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
+  post: Post[];
 }

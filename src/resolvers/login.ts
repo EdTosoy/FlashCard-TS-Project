@@ -1,20 +1,38 @@
-import { Arg, Mutation, Resolver } from "type-graphql";
-import argon2 from "argon2";
 import { User } from "../entity/User";
+import { Arg, Ctx, Field, Mutation, ObjectType, Resolver } from "type-graphql";
+import { MyContext } from "../MyContext";
+import { createRefreshToken, createAccessToken } from "../Auth";
+import { sendRefreshToken } from "../sendRefreshToken";
+import argon2 from "argon2";
+
+@ObjectType()
+class LoginResponse {
+  @Field()
+  accessToken: string;
+}
 
 @Resolver()
 export class Login {
-  @Mutation(() => Boolean)
-  async login(@Arg("email") email: string, @Arg("password") password: string) {
-    const hasdedPassword = await argon2.hash(password);
+  @Mutation(() => LoginResponse)
+  async login(
+    @Arg("email") email: string,
+    @Arg("password") password: string,
+    @Ctx() { res }: MyContext
+  ): Promise<LoginResponse> {
     const user = await User.findOne({ where: { email: email } });
-    const valid = await argon2.verify(hasdedPassword, password);
     if (!user) {
       throw new Error("user does not exist");
     }
+    const valid = await argon2.verify(user.password, password);
     if (!valid) {
-      throw new Error("Incorrect Password");
+      throw new Error("bad password");
     }
-    return true;
+    // login succussfully
+
+    sendRefreshToken(res, createRefreshToken(user));
+
+    return {
+      accessToken: createAccessToken(user),
+    };
   }
 }
